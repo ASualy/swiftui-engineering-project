@@ -8,8 +8,8 @@
 @testable import MobileAcebook
 
 class MockAuthenticationService: AuthenticationServiceProtocol {
-    func signUp(user: User) -> Bool {
+    func signUp(user: User, completion: @escaping (Result<Bool, Error>) -> Void) {
         // Mocked logic for unit tests
-        return true // placeholder
+        return // placeholder
     }
 }
