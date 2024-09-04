@@ -22,6 +22,8 @@
 		AE5D85E32AC9AFD2009680C6 /* MockAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85E22AC9AFD2009680C6 /* MockAuthenticationService.swift */; };
 		AE5D85E62AC9B077009680C6 /* AuthenticationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85E52AC9B077009680C6 /* AuthenticationServiceProtocol.swift */; };
 		AE5D85E82AC9B29A009680C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85E72AC9B29A009680C6 /* User.swift */; };
+		B236AA322C87396F00649CBB /* AuthenticationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236AA312C87396F00649CBB /* AuthenticationServiceTests.swift */; };
+		B236AA352C8739B300649CBB /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236AA342C8739B300649CBB /* LoginViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,9 @@
 		AE5D85E22AC9AFD2009680C6 /* MockAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthenticationService.swift; sourceTree = "<group>"; };
 		AE5D85E52AC9B077009680C6 /* AuthenticationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceProtocol.swift; sourceTree = "<group>"; };
 		AE5D85E72AC9B29A009680C6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B236AA312C87396F00649CBB /* AuthenticationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceTests.swift; sourceTree = "<group>"; };
+		B236AA342C8739B300649CBB /* LoginViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTests.swift; sourceTree = "<group>"; };
+		B236AA362C873BF400649CBB /* MobileAcebook.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MobileAcebook.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +105,7 @@
 		AE5D85A32AC8A221009680C6 = {
 			isa = PBXGroup;
 			children = (
+				B236AA362C873BF400649CBB /* MobileAcebook.xctestplan */,
 				AE5D85AE2AC8A221009680C6 /* MobileAcebook */,
 				AE5D85BF2AC8A224009680C6 /* MobileAcebookTests */,
 				AE5D85C92AC8A224009680C6 /* MobileAcebookUITests */,
@@ -143,6 +149,7 @@
 		AE5D85BF2AC8A224009680C6 /* MobileAcebookTests */ = {
 			isa = PBXGroup;
 			children = (
+				B236AA332C8739A100649CBB /* Views */,
 				AE5D85DE2AC9AF78009680C6 /* Services */,
 				AE5D85C02AC8A224009680C6 /* MobileAcebookTests.swift */,
 			);
@@ -171,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5D85E22AC9AFD2009680C6 /* MockAuthenticationService.swift */,
+				B236AA312C87396F00649CBB /* AuthenticationServiceTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -189,6 +197,14 @@
 				AE5D85E52AC9B077009680C6 /* AuthenticationServiceProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		B236AA332C8739A100649CBB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B236AA342C8739B300649CBB /* LoginViewTests.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,7 +352,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B236AA322C87396F00649CBB /* AuthenticationServiceTests.swift in Sources */,
 				AE5D85C12AC8A224009680C6 /* MobileAcebookTests.swift in Sources */,
+				B236AA352C8739B300649CBB /* LoginViewTests.swift in Sources */,
 				AE5D85E32AC9AFD2009680C6 /* MockAuthenticationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
