@@ -16,11 +16,15 @@ struct RegistrationView: View {
     @State private var alertMessage = ""
     
     var body: some View {
-        VStack(spacing:15) {
+        VStack() {
+            VStack {
                 Text("Acebook Mobile")
                     .padding(50)
                     .font(.largeTitle)
                     .padding(.bottom, 20)
+            }
+            
+            VStack(spacing:15) {
                 
                 Text("Full name:")
                     .padding(.leading, 20)
@@ -63,7 +67,7 @@ struct RegistrationView: View {
                     .background(Color(.secondarySystemBackground))
                     .cornerRadius(5.0)
                     .accessibilityIdentifier("confirmPasswordTextField")
-            
+                
                 Button("Register") {
                     register()
                 }
@@ -86,6 +90,7 @@ struct RegistrationView: View {
             }
             
         }
+    }
     
     private func register() {
             // Ensure fields are not empty
