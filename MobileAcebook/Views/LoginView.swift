@@ -72,7 +72,7 @@ struct LoginView:View {
                 Spacer()
             }
         }
-    }
+//    }
 
     
     // creates a user object with the entered email and password, calls the login method in the authentication service and updates the loginmessage

@@ -10,9 +10,9 @@ public struct User: Encodable {
     let username: String?
     let password: String
     
-    init(email: String, password: String, username: String? = nil) {
+    init(email: String, username: String? = nil, password: String) {
          self.email = email
-         self.password = password
          self.username = username
+         self.password = password
      }
 }
