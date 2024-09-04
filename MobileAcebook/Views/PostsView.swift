@@ -66,7 +66,7 @@ struct PostsView: View {
             Image(systemName: "heart")
                 .renderingMode(.template)
                 .foregroundColor(Color(.label))
-                Text("3") // needs updating to likes count once handlelike added
+                Text("3") // needs updating to likes count once handlelike added with toggle and add colour
             
             Image(systemName: "bubble.left")
                 .renderingMode(.template)

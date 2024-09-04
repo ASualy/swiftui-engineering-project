@@ -8,7 +8,7 @@
 import Foundation
 
 class Post: ObservableObject {
-    @Published var posts: [Post] = []
+    @Published var posts: [Post] = []  // need to add date below and to init
     
     let id: String
     let username: String
