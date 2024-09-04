@@ -27,15 +27,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "NO">
-      <TestPlans>
-         <TestPlanReference
-            reference = "container:MobileAcebook.xctestplan"
-            default = "YES">
-         </TestPlanReference>
-         <AutocreatedTestPlanReference>
-         </AutocreatedTestPlanReference>
-      </TestPlans>
+      shouldUseLaunchSchemeArgsEnv = "NO"
+      shouldAutocreateTestPlan = "YES">
       <Testables>
          <TestableReference
             skipped = "NO"
