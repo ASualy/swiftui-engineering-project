@@ -104,7 +104,7 @@ struct RegistrationView: View {
             
         
             let authService = AuthenticationService()
-            let user = User(email: email, username: username, password: password)
+        let user = User(email: email, password: password, username: username)
 
                 authService.signUp(user: user) { result in
                     DispatchQueue.main.async {

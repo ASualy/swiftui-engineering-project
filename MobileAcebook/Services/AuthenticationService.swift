@@ -70,7 +70,6 @@ class AuthenticationService: AuthenticationServiceProtocol {
 
         task.resume()
     }
-
     
     @Published var isLoggedIn: Bool = false
 
