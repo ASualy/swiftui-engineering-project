@@ -11,7 +11,6 @@ struct LoginView:View {
     @State var email = ""
     @State var password = ""
     var body: some View {
-        NavigationView {
             VStack {
                 Text("Acebook Mobile")
                     .padding(50)
@@ -55,7 +54,7 @@ struct LoginView:View {
             }
         }
     }
-}
+
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {

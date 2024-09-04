@@ -16,7 +16,6 @@ struct RegistrationView: View {
     @State private var alertMessage = ""
     
     var body: some View {
-        NavigationView {
             VStack {
                 Text("Acebook Mobile")
                     .padding(50)
@@ -87,7 +86,6 @@ struct RegistrationView: View {
             }
             
         }
-    }
     
     private func register() {
             // Ensure fields are not empty
