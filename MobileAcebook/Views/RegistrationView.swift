@@ -16,13 +16,16 @@ struct RegistrationView: View {
     @State private var alertMessage = ""
     
     var body: some View {
+        VStack() {
             VStack {
                 Text("Acebook Mobile")
                     .padding(50)
                     .font(.largeTitle)
                     .padding(.bottom, 20)
+            }
+            
+            VStack(spacing:15) {
                 
-
                 Text("Full name:")
                     .padding(.leading, 20)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -65,51 +68,6 @@ struct RegistrationView: View {
                     .cornerRadius(5.0)
                     .accessibilityIdentifier("confirmPasswordTextField")
                 
-
-                VStack(spacing: 15) {
-                    
-                    Text("Full name:")
-                        .padding(.leading, 20)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    TextField("Username", text: $username)
-                        .padding()
-                        .frame(width: 350)
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(5.0)
-                        .accessibilityIdentifier("usernameTextField")
-                    
-                    Text("Email:")
-                        .padding(.leading,20)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    TextField("Email", text: $email)
-                        .padding()
-                        .frame(width: 350)
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(5.0)
-                        .keyboardType(.emailAddress)
-                        .accessibilityIdentifier("emailTextField")
-                    
-                    Text("Password:")
-                        .padding(.leading,20)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    SecureField("Password", text: $password)
-                        .padding()
-                        .frame(width: 350)
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(5.0)
-                        .accessibilityIdentifier("passwordTextField")
-                    
-                    Text("Confirm password:")
-                        .padding(.leading,20)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    SecureField("Confirm Password", text: $confirmPassword)
-                        .padding()
-                        .frame(width: 350)
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(5.0)
-                        .accessibilityIdentifier("confirmPasswordTextField")
-                }
-
                 Button("Register") {
                     register()
                 }
@@ -132,6 +90,7 @@ struct RegistrationView: View {
             }
             
         }
+    }
     
     private func register() {
             // Ensure fields are not empty
@@ -150,7 +109,7 @@ struct RegistrationView: View {
             
         
             let authService = AuthenticationService()
-        let user = User(email: email, password: password, username: username)
+        let user = User(email: email, username: username, password: password)
 
                 authService.signUp(user: user) { result in
                     DispatchQueue.main.async {

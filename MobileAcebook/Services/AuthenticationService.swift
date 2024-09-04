@@ -12,7 +12,6 @@ class AuthenticationService: AuthenticationServiceProtocol {
     func signUp(user: User, completion: @escaping (Result<Bool, Error>) -> Void) {
         
         let backendURL = ProcessInfo.processInfo.environment["BACKEND_URL"]!
-        // print("BackendURL: \(String(describing: backendURL))")
         
         guard let url = URL(string: "\(backendURL)/users") else {
                     completion(.failure(URLError(.badURL)))
