@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LoginView:View {
-    @State private var email = ""
-    @State private var password = ""
+    @State var email = ""
+    @State var password = ""
     @State private var loginMessage: String = ""
     
     // creating instance of authenticationservice based off the protocol

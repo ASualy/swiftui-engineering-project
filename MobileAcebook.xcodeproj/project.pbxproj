@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C0F07A32C88F7010046305A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F07A22C88F7010046305A /* ProfileView.swift */; };
+		5C0F07A52C8910ED0046305A /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F07A42C8910ED0046305A /* UserService.swift */; };
 		5C0F3AD02C861A3E0005A176 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F3ACF2C861A3E0005A176 /* RegistrationView.swift */; };
 		5C0F3AD22C86EFAF0005A176 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F3AD12C86EFAF0005A176 /* LoginView.swift */; };
-		5CE3BE192C88D709000BCE13 /* MobileAcebookTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = AE5D85BC2AC8A224009680C6 /* MobileAcebookTests.xctest */; };
 		92A77BB12C8706EF0019EA48 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A77BB02C8706EF0019EA48 /* PostsView.swift */; };
 		92AFBF242C886D57005206BA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFBF232C886D57005206BA /* Post.swift */; };
 		AE5D85B02AC8A221009680C6 /* MobileAcebookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85AF2AC8A221009680C6 /* MobileAcebookApp.swift */; };
@@ -47,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		5C0860E22C88C03900CB6406 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		5C0F07A22C88F7010046305A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		5C0F07A42C8910ED0046305A /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		5C0F3ACF2C861A3E0005A176 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		5C0F3AD12C86EFAF0005A176 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		92A77BB02C8706EF0019EA48 /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 				5C0F3ACF2C861A3E0005A176 /* RegistrationView.swift */,
 				5C0F3AD12C86EFAF0005A176 /* LoginView.swift */,
 				92A77BB02C8706EF0019EA48 /* PostsView.swift */,
+				5C0F07A22C88F7010046305A /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5D85E02AC9AFA9009680C6 /* AuthenticationService.swift */,
+				5C0F07A42C8910ED0046305A /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -348,7 +353,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CE3BE192C88D709000BCE13 /* MobileAcebookTests.xctest in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,9 +372,11 @@
 			files = (
 				AE5D85E12AC9AFA9009680C6 /* AuthenticationService.swift in Sources */,
 				5C0F3AD22C86EFAF0005A176 /* LoginView.swift in Sources */,
+				5C0F07A32C88F7010046305A /* ProfileView.swift in Sources */,
 				AE5D85E62AC9B077009680C6 /* AuthenticationServiceProtocol.swift in Sources */,
 				AE5D85B02AC8A221009680C6 /* MobileAcebookApp.swift in Sources */,
 				5C0F3AD02C861A3E0005A176 /* RegistrationView.swift in Sources */,
+				5C0F07A52C8910ED0046305A /* UserService.swift in Sources */,
 				AE5D85E82AC9B29A009680C6 /* User.swift in Sources */,
 				92AFBF242C886D57005206BA /* Post.swift in Sources */,
 				92A77BB12C8706EF0019EA48 /* PostsView.swift in Sources */,
