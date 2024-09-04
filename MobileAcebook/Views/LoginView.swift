@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct LoginView:View {
-    @State var email = ""
-    @State var password = ""
-    @State var loginMessage: String = ""
+    @State private var email = ""
+    @State private var password = ""
+    @State private var loginMessage: String = ""
     
     // creating instance of authenticationservice based off the protocol
     private let authService: AuthenticationServiceProtocol
@@ -72,7 +72,6 @@ struct LoginView:View {
                 Spacer()
             }
         }
-    }
 
     
     // creates a user object with the entered email and password, calls the login method in the authentication service and updates the loginmessage

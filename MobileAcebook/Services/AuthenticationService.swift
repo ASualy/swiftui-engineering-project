@@ -71,18 +71,6 @@ class AuthenticationService: AuthenticationServiceProtocol {
 
         task.resume()
     }
-
-
-enum CustomError: Error {
-    case message(String)
-    
-    var localizedDescription: String {
-        switch self {
-        case .message(let msg):
-            return msg
-        }
-    }
-}
     
     @Published var isLoggedIn: Bool = false
 
@@ -122,5 +110,16 @@ enum CustomError: Error {
             }
         }
         task.resume()
+    }
+}
+
+enum CustomError: Error {
+    case message(String)
+    
+    var localizedDescription: String {
+        switch self {
+        case .message(let msg):
+            return msg
+        }
     }
 }
