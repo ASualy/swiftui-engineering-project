@@ -46,6 +46,7 @@
 /* Begin PBXFileReference section */
 		5C0F3ACF2C861A3E0005A176 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		5C0F3AD12C86EFAF0005A176 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		5CCFD4F92C87A2A500DD15DB /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		92A77BB02C8706EF0019EA48 /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
 		AE5D85AC2AC8A221009680C6 /* MobileAcebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileAcebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5D85AF2AC8A221009680C6 /* MobileAcebookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileAcebookApp.swift; sourceTree = "<group>"; };
@@ -105,6 +106,7 @@
 		AE5D85A32AC8A221009680C6 = {
 			isa = PBXGroup;
 			children = (
+				5CCFD4F92C87A2A500DD15DB /* Release.xcconfig */,
 				B236AA362C873BF400649CBB /* MobileAcebook.xctestplan */,
 				AE5D85AE2AC8A221009680C6 /* MobileAcebook */,
 				AE5D85BF2AC8A224009680C6 /* MobileAcebookTests */,
@@ -387,6 +389,7 @@
 /* Begin XCBuildConfiguration section */
 		AE5D85CE2AC8A224009680C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CCFD4F92C87A2A500DD15DB /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -447,6 +450,7 @@
 		};
 		AE5D85CF2AC8A224009680C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CCFD4F92C87A2A500DD15DB /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -501,6 +505,7 @@
 		};
 		AE5D85D12AC8A224009680C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CCFD4F92C87A2A500DD15DB /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -529,6 +534,7 @@
 		};
 		AE5D85D22AC8A224009680C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CCFD4F92C87A2A500DD15DB /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -557,6 +563,7 @@
 		};
 		AE5D85D42AC8A224009680C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CCFD4F92C87A2A500DD15DB /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -576,6 +583,7 @@
 		};
 		AE5D85D52AC8A224009680C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CCFD4F92C87A2A500DD15DB /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -595,6 +603,7 @@
 		};
 		AE5D85D72AC8A224009680C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CCFD4F92C87A2A500DD15DB /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -612,6 +621,7 @@
 		};
 		AE5D85D82AC8A224009680C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CCFD4F92C87A2A500DD15DB /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

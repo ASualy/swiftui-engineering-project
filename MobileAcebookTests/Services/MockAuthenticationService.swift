@@ -9,14 +9,12 @@ import Foundation
 @testable import MobileAcebook
 
 class MockAuthenticationService: AuthenticationServiceProtocol {
+    func signUp(user: User, completion: @escaping (Result<Bool, Error>) -> Void) {
+      
+    }
     
     var logInResult: Bool = true
     var logInHandler: ((User, @escaping (Bool) -> Void) -> Void)?
-    
-    func signUp(user: User) -> Bool {
-        // Mocked logic for unit tests
-        return true // placeholder
-    }
     
     func logIn(user: User, completion: @escaping (Bool) -> Void) {
         if let logInHandler = logInHandler {

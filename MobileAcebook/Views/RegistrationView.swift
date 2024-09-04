@@ -16,13 +16,56 @@ struct RegistrationView: View {
     @State private var alertMessage = ""
     
     var body: some View {
-        NavigationView {
             VStack {
                 Text("Acebook Mobile")
                     .padding(50)
                     .font(.largeTitle)
                     .padding(.bottom, 20)
                 
+
+                Text("Full name:")
+                    .padding(.leading, 20)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                TextField("Username", text: $username)
+                    .padding()
+                    .frame(width: 350)
+                    .background(Color(.secondarySystemBackground))
+                    .cornerRadius(5.0)
+                    .accessibilityIdentifier("usernameTextField")
+                
+                Text("Email:")
+                    .padding(.leading,20)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                TextField("Email", text: $email)
+                    .padding()
+                    .frame(width: 350)
+                    .background(Color(.secondarySystemBackground))
+                    .cornerRadius(5.0)
+                    .keyboardType(.emailAddress)
+                    .accessibilityIdentifier("emailTextField")
+                    .textInputAutocapitalization(.never)
+                
+                Text("Password:")
+                    .padding(.leading,20)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                SecureField("Password", text: $password)
+                    .padding()
+                    .frame(width: 350)
+                    .background(Color(.secondarySystemBackground))
+                    .cornerRadius(5.0)
+                    .accessibilityIdentifier("passwordTextField")
+                
+                Text("Confirm password:")
+                    .padding(.leading,20)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                SecureField("Confirm Password", text: $confirmPassword)
+                    .padding()
+                    .frame(width: 350)
+                    .background(Color(.secondarySystemBackground))
+                    .cornerRadius(5.0)
+                    .accessibilityIdentifier("confirmPasswordTextField")
+                
+
                 VStack(spacing: 15) {
                     
                     Text("Full name:")
@@ -66,6 +109,7 @@ struct RegistrationView: View {
                         .cornerRadius(5.0)
                         .accessibilityIdentifier("confirmPasswordTextField")
                 }
+
                 Button("Register") {
                     register()
                 }
@@ -84,30 +128,47 @@ struct RegistrationView: View {
             
             .padding()
             .alert(isPresented: $showingAlert) {
-                Alert(title: Text("Registration Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+                Alert(title: Text("Registration"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
             }
             
         }
-    }
     
     private func register() {
-            // Basic validation
+            // Ensure fields are not empty
             guard !username.isEmpty, !email.isEmpty, !password.isEmpty, !confirmPassword.isEmpty else {
                 alertMessage = "Please fill in all fields."
                 showingAlert = true
                 return
             }
             
+            // Ensure passwords are match
             guard password == confirmPassword else {
                 alertMessage = "Passwords do not match."
                 showingAlert = true
                 return
             }
             
-            // TODO: registration logic
+        
+            let authService = AuthenticationService()
+            let user = User(email: email, username: username, password: password)
+
+                authService.signUp(user: user) { result in
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .success:
+                            alertMessage = "Registration successful!"
+                        case .failure(let error):
+                            if let customError = error as? CustomError {
+                                alertMessage = "Failed to sign up:\(customError.localizedDescription)"
+                            }else{
+                                alertMessage = "Failed to sign up: \(error.localizedDescription)"
+                            }
+                        }
+                        showingAlert = true
+                    }
+                }
+            }
         }
-    
-}
 
 
 

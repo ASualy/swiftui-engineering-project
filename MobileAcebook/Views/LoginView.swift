@@ -23,7 +23,6 @@ struct LoginView:View {
     }
     
     var body: some View {
-        NavigationView {
             VStack {
                 Text("Acebook Mobile")
                     .padding(50)
@@ -74,6 +73,7 @@ struct LoginView:View {
             }
         }
     }
+
     
     // creates a user object with the entered email and password, calls the login method in the authentication service and updates the loginmessage
     func loginAction() {
