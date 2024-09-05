@@ -11,6 +11,8 @@ struct LoginView:View {
     @State private var email = ""
     @State private var password = ""
     @State private var loginMessage: String = ""
+    @State private var isLoggedIn: Bool = false //TO BE DISCUSSED
+    private let tokenManager = TokenManager() // TO BE REPLACED WITH SESSION MANAGER
     
     // creating instance of authenticationservice based off the protocol
     private let authService: AuthenticationServiceProtocol
@@ -68,6 +70,12 @@ struct LoginView:View {
                 
                 NavigationLink("Don't have an account? Please register.", destination: RegistrationView())
                     .padding()
+                // Automatically redirect to ProfileView on login success
+                NavigationLink(
+                    destination: ProfileView(token:tokenManager.getToken()),
+                    isActive: $isLoggedIn, // Activates when isLoggedIn becomes true
+                    label: { EmptyView() }
+                )
                 
                 Spacer()
             }
@@ -79,8 +87,15 @@ struct LoginView:View {
             let user = User(email: email, password: password)
             authService.logIn(user: user) { success in
                 DispatchQueue.main.async {
-                    self.loginMessage = success ? "Login Successful" : "Login Failed"
-                    print("Login message updated: \(self.loginMessage)")
+//                    self.loginMessage = success ? "Login Successful" : "Login Failed"
+//                    print("Login message updated: \(self.loginMessage)")
+                    if success {
+                        self.loginMessage = "Login Succesful"
+                        self.isLoggedIn = true
+                    } else {
+                        self.loginMessage = "Login failed"
+                        self.isLoggedIn = false
+                    }
                 }
             }
         }
