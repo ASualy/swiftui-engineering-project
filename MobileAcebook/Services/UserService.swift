@@ -47,7 +47,7 @@ class UserService {
                        if let user = userResponse.userData.first {
                            completion(.success(user))
                        } else {
-                           completion(.failure(URLError(.cannotFindHost))) // You can customize the error message
+                           completion(.failure(URLError(.cannotFindHost))) 
                        }
                        
                    } catch {

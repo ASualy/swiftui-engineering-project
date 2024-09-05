@@ -15,14 +15,14 @@ public struct User: Codable {
     let _id: String?
     let email: String
     let username: String?
-    let imageUrl: String?
+    let imgUrl: String?
     let password: String
     
-    init(_id: String? = nil, email: String, username: String? = nil, imageUrl: String? = nil, password: String) {
+    init(_id: String? = nil, email: String, username: String? = nil, imgUrl: String? = nil, password: String) {
         self._id = _id
          self.email = email
          self.username = username
-         self.imageUrl = imageUrl
+         self.imgUrl = imgUrl
          self.password = password
      }
 }

@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    let token: String
+    let token: String?
     @State private var user: User? = nil
     @State private var isLoading = true
     @State private var errorMessage: String? = nil
@@ -28,17 +28,15 @@ struct ProfileView: View {
                         .font(.largeTitle)
                         .padding(.bottom, 20)
                     
-                    if let imageUrl = user.imageUrl, !imageUrl.isEmpty {
+                    if let imageUrl = user.imgUrl, !imageUrl.isEmpty {
                         AsyncImage(url: URL(string: imageUrl)) { image in
                             image
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 150, height: 150)
+                                .frame(width: 200, height: 200)
                                 .clipShape(Circle())
-                                .shadow(radius: 10)
                         } placeholder: {
                             ProgressView()
-                            Image("profile")
                         }
                         .padding(.bottom, 20)
                     }
@@ -89,7 +87,7 @@ struct ProfileView: View {
     }
     
     private func fetchUserDetails() {
-        userService.getUserDetails(token: token) { result in
+        userService.getUserDetails(token: token!) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let user):
@@ -107,7 +105,7 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkODNlM2EwYjFhMjMwZDA5MjUwZDVhIiwiaWF0IjoxNzI1NDg5Njc4LCJleHAiOjE3MjU0OTAyNzh9.z-JevP-sKq-bNjwvKqe3qArAckav36bgKSb8LtLDy38")
+        ProfileView(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkOTgwMmJhZWU3YTg4ZmMyYzI4ZDAwIiwiaWF0IjoxNzI1NTMwMjAyLCJleHAiOjE3MjU1MzA4MDJ9.rRRro3kg5IxIZV9Ecga3kVKYuSEx0T3J_mWFC9FZvxU")
     }
 }
 
