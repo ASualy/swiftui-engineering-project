@@ -146,16 +146,48 @@ struct PostsView: View {
     
     func header(for post: Post) -> some View {
         HStack {
-            Image("profile")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .clipped()
-                .frame(width: 40, height: 40)
-                .clipShape(Circle())
-                .padding(.leading)
+            if let profilePictureUrl = post.createdBy.profilePicture,
+               let url = URL(string: profilePictureUrl) {
+                AsyncImage(url: url) { phase in
+                    switch phase {
+                    case .empty:
+                        Image("profile")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipped()
+                            .frame(width: 40, height: 40)
+                            .clipShape(Circle())
+                            .padding(.leading)
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipped()
+                            .frame(width: 40, height: 40)
+                            .clipShape(Circle())
+                            .padding(.leading)
+                    case .failure:
+                        Image("profile")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipped()
+                            .frame(width: 40, height: 40)
+                            .clipShape(Circle())
+                            .padding(.leading)
+                    @unknown default:
+                        Image("profile")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipped()
+                            .frame(width: 40, height: 40)
+                            .clipShape(Circle())
+                            .padding(.leading)
+                    }
+                }
+            }
 
             VStack(alignment: .leading) {
-                Text(post.username)
+                Text(post.createdBy.username)
                     .font(.title)
                     .bold()
             }
@@ -181,6 +213,9 @@ struct PostsView: View {
     func messageContainer(for post: Post) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(post.message)
+            Text(post.createdBy.username)
+            Text(post.id)
+            Text(post.createdAt ?? "Date unavailable")
                 .font(.system(size: 25))
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
@@ -206,12 +241,12 @@ struct PostsView: View {
         .padding(.bottom, 20)
     }
     
-    private func fetchPosts() {
+    func fetchPosts() {
         authenticationService.fetchPosts { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let fetchedPosts):
-                    self.posts = fetchedPosts
+                    self.posts = fetchedPosts // fetchedPosts should be an array of `Post`
                     self.isLoading = false
                 case .failure(let error):
                     self.errorMessage = error.localizedDescription
