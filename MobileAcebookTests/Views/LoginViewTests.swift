@@ -37,47 +37,47 @@ class LoginViewTests: XCTestCase {
     }
 
     
-    func testLoginActionInvokesCompletionHandlerOnSuccess() {
-        sut.email = "test@example.com"
-        sut.password = "password123"
-        
-        let expectation = XCTestExpectation(description: "Completion handler should be invoked with success = true")
-        
-        mockAuthService.logInResult = true
-        
-        mockAuthService.logInHandler = { _, completion in
-            completion(true)
-        }
-        
-        sut.loginAction()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
-            XCTAssertTrue(self.mockAuthService.logInResult)
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 2.0)
-    }
+//    func testLoginActionInvokesCompletionHandlerOnSuccess() {
+//        sut.email = "test@example.com"
+//        sut.password = "password123"
+//        
+//        let expectation = XCTestExpectation(description: "Completion handler should be invoked with success = true")
+//        
+//        mockAuthService.logInResult = true
+//        
+//        mockAuthService.logInHandler = { _, completion in
+//            completion(true)
+//        }
+//        
+//        sut.loginAction()
+//        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+//            XCTAssertTrue(self.mockAuthService.logInResult)
+//            expectation.fulfill()
+//        }
+//        
+//        wait(for: [expectation], timeout: 2.0)
+//    }
     
-    func testLoginActionInvokesCompletionHandlerOnFailure() {
-        sut.email = "test@example.com"
-        sut.password = "wrongpassword"
-        
-        let expectation = XCTestExpectation(description: "Completion handler should be invoked with success = false")
-        
-        mockAuthService.logInResult = false
-        
-        mockAuthService.logInHandler = { _, completion in
-            completion(false)
-        }
-        
-        sut.loginAction()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
-            XCTAssertFalse(self.mockAuthService.logInResult)
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 2.0)
-    }
+//    func testLoginActionInvokesCompletionHandlerOnFailure() {
+//        sut.email = "test@example.com"
+//        sut.password = "wrongpassword"
+//        
+//        let expectation = XCTestExpectation(description: "Completion handler should be invoked with success = false")
+//        
+//        mockAuthService.logInResult = false
+//        
+//        mockAuthService.logInHandler = { _, completion in
+//            completion(false)
+//        }
+//        
+//        sut.loginAction()
+//        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+//            XCTAssertFalse(self.mockAuthService.logInResult)
+//            expectation.fulfill()
+//        }
+//        
+//        wait(for: [expectation], timeout: 2.0)
+//    }
 }

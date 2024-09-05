@@ -154,46 +154,7 @@ class AuthenticationService: AuthenticationServiceProtocol {
 //        task.resume()
 //      }
 //    }
-    func fetchPosts(completion: @escaping (Result<[Post], Error>) -> Void) {
-        let url = URL(string: "http://localhost:3000/posts")!
-        let token:String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkOTdlYTRjZTFjZTdhNzZlNjE5ZGYwIiwiaWF0IjoxNzI1NTUyMjYxLCJleHAiOjE3MjU1NTI4NjF9.e3KCGl6Jy1Zc5gY2Qs4TGTYozi3EXjyShHJja6PJKhM"
-//        let backendURL = ProcessInfo.processInfo.environment["http://localhost:3000/posts"]
-//        let urlString = "\(backendURL)/posts"
 
-        var request = URLRequest(url: url)
-                request.httpMethod = "GET"
-                // Set the Authorization header with the Bearer token
-                request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-    
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            print("HERE!!")
-            print(request)
-            guard let data = data else {
-                completion(.failure(NSError(domain: "No data", code: -1, userInfo: nil)))
-                return
-            }
-            print(data)
-
-            guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: [])
-                
-             else {
-                print("error")
-                return
-            }
-            print(jsonObject)
-//            do {
-//                let postsResponse = try JSONDecoder().decode([Post].self, from: data)
-//                print(postsResponse)
-//                completion(.success(postsResponse))
-//            } catch {
-//                completion(.failure(error))
-//            }
-        }.resume()
-    }
 }
 
 enum CustomError: Error {

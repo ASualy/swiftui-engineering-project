@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5C0F3AD02C861A3E0005A176 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F3ACF2C861A3E0005A176 /* RegistrationView.swift */; };
 		5C0F3AD22C86EFAF0005A176 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F3AD12C86EFAF0005A176 /* LoginView.swift */; };
+		5C14A2032C8A589200E95C72 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14A2022C8A589200E95C72 /* FeedService.swift */; };
 		92A77BB12C8706EF0019EA48 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A77BB02C8706EF0019EA48 /* PostsView.swift */; };
 		92AFBF242C886D57005206BA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFBF232C886D57005206BA /* Post.swift */; };
 		AE5D85B02AC8A221009680C6 /* MobileAcebookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85AF2AC8A221009680C6 /* MobileAcebookApp.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		5C0F3ACF2C861A3E0005A176 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		5C0F3AD12C86EFAF0005A176 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		5C14A2022C8A589200E95C72 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		5CCFD4F92C87A2A500DD15DB /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		92A77BB02C8706EF0019EA48 /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
 		92AFBF232C886D57005206BA /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5D85E02AC9AFA9009680C6 /* AuthenticationService.swift */,
+				5C14A2022C8A589200E95C72 /* FeedService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				92AFBF242C886D57005206BA /* Post.swift in Sources */,
 				92A77BB12C8706EF0019EA48 /* PostsView.swift in Sources */,
 				AE5D85DA2AC8A337009680C6 /* WelcomePageView.swift in Sources */,
+				5C14A2032C8A589200E95C72 /* FeedService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

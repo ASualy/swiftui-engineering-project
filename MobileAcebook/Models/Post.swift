@@ -35,7 +35,7 @@ struct CreatedBy: Codable {
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case username
-        case profilePicture = "imgUrl"
+        case profilePicture // ON: Deleted = "imgUrl" as it should refer to the profilePicture in JSON structure
     }
 }
     
