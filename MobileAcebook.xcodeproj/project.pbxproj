@@ -28,6 +28,9 @@
 		AE5D85E82AC9B29A009680C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85E72AC9B29A009680C6 /* User.swift */; };
 		B236AA322C87396F00649CBB /* AuthenticationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236AA312C87396F00649CBB /* AuthenticationServiceTests.swift */; };
 		B236AA352C8739B300649CBB /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236AA342C8739B300649CBB /* LoginViewTests.swift */; };
+		B274893E2C8A0AB800F59C23 /* CreatePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B274893D2C8A0AB800F59C23 /* CreatePostService.swift */; };
+		B27489402C8A0ADA00F59C23 /* CreatePostServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B274893F2C8A0ADA00F59C23 /* CreatePostServiceProtocol.swift */; };
+		B27489422C8A0B0C00F59C23 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27489412C8A0B0C00F59C23 /* CreatePostView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,9 @@
 		AE5D85E72AC9B29A009680C6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B236AA312C87396F00649CBB /* AuthenticationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceTests.swift; sourceTree = "<group>"; };
 		B236AA342C8739B300649CBB /* LoginViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTests.swift; sourceTree = "<group>"; };
+		B274893D2C8A0AB800F59C23 /* CreatePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostService.swift; sourceTree = "<group>"; };
+		B274893F2C8A0ADA00F59C23 /* CreatePostServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostServiceProtocol.swift; sourceTree = "<group>"; };
+		B27489412C8A0B0C00F59C23 /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,7 @@
 				5C0F3AD12C86EFAF0005A176 /* LoginView.swift */,
 				92A77BB02C8706EF0019EA48 /* PostsView.swift */,
 				5C0F07A22C88F7010046305A /* ProfileView.swift */,
+				B27489412C8A0B0C00F59C23 /* CreatePostView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,6 +204,7 @@
 				AE5D85E02AC9AFA9009680C6 /* AuthenticationService.swift */,
 				5C0F07A42C8910ED0046305A /* UserService.swift */,
 				5C0F07A62C89B5390046305A /* TokenManager.swift */,
+				B274893D2C8A0AB800F59C23 /* CreatePostService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -223,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5D85E52AC9B077009680C6 /* AuthenticationServiceProtocol.swift */,
+				B274893F2C8A0ADA00F59C23 /* CreatePostServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -378,13 +387,16 @@
 				5C0F3AD22C86EFAF0005A176 /* LoginView.swift in Sources */,
 				5C0F07A32C88F7010046305A /* ProfileView.swift in Sources */,
 				AE5D85E62AC9B077009680C6 /* AuthenticationServiceProtocol.swift in Sources */,
+				B27489422C8A0B0C00F59C23 /* CreatePostView.swift in Sources */,
 				AE5D85B02AC8A221009680C6 /* MobileAcebookApp.swift in Sources */,
+				B274893E2C8A0AB800F59C23 /* CreatePostService.swift in Sources */,
 				5C0F3AD02C861A3E0005A176 /* RegistrationView.swift in Sources */,
 				5C0F07A52C8910ED0046305A /* UserService.swift in Sources */,
 				AE5D85E82AC9B29A009680C6 /* User.swift in Sources */,
 				92AFBF242C886D57005206BA /* Post.swift in Sources */,
 				92A77BB12C8706EF0019EA48 /* PostsView.swift in Sources */,
 				AE5D85DA2AC8A337009680C6 /* WelcomePageView.swift in Sources */,
+				B27489402C8A0ADA00F59C23 /* CreatePostServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

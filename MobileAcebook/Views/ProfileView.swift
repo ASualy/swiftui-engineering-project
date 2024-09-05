@@ -84,6 +84,9 @@ struct ProfileView: View {
         .onAppear {
             fetchUserDetails()
         }
+        
+        NavigationLink("Create Post - ONLY FOR NAVIGATING TO TEST CREATE POST. NOT TO BE INCLUDED.", destination: CreatePostView())
+            .padding()
     }
     
     private func fetchUserDetails() {
