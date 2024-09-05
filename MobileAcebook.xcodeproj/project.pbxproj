@@ -25,6 +25,10 @@
 		AE5D85E82AC9B29A009680C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85E72AC9B29A009680C6 /* User.swift */; };
 		B236AA322C87396F00649CBB /* AuthenticationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236AA312C87396F00649CBB /* AuthenticationServiceTests.swift */; };
 		B236AA352C8739B300649CBB /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236AA342C8739B300649CBB /* LoginViewTests.swift */; };
+		B292542E2C88B5140087280E /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292542D2C88B5140087280E /* CreatePostView.swift */; };
+		B29254322C88CED40087280E /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29254312C88CED40087280E /* PostService.swift */; };
+		B29254342C88CEE50087280E /* PostServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29254332C88CEE50087280E /* PostServiceProtocol.swift */; };
+		B29254382C88E01C0087280E /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29254372C88E01C0087280E /* UserSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +72,10 @@
 		B236AA312C87396F00649CBB /* AuthenticationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceTests.swift; sourceTree = "<group>"; };
 		B236AA342C8739B300649CBB /* LoginViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTests.swift; sourceTree = "<group>"; };
 		B236AA362C873BF400649CBB /* MobileAcebook.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MobileAcebook.xctestplan; sourceTree = "<group>"; };
+		B292542D2C88B5140087280E /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
+		B29254312C88CED40087280E /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		B29254332C88CEE50087280E /* PostServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostServiceProtocol.swift; sourceTree = "<group>"; };
+		B29254372C88E01C0087280E /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,7 @@
 				5C0F3ACF2C861A3E0005A176 /* RegistrationView.swift */,
 				5C0F3AD12C86EFAF0005A176 /* LoginView.swift */,
 				92A77BB02C8706EF0019EA48 /* PostsView.swift */,
+				B292542D2C88B5140087280E /* CreatePostView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				AE5D85E02AC9AFA9009680C6 /* AuthenticationService.swift */,
+				B29254312C88CED40087280E /* PostService.swift */,
+				B29254372C88E01C0087280E /* UserSession.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -200,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5D85E52AC9B077009680C6 /* AuthenticationServiceProtocol.swift */,
+				B29254332C88CEE50087280E /* PostServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -342,14 +354,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B292542E2C88B5140087280E /* CreatePostView.swift in Sources */,
+				B29254342C88CEE50087280E /* PostServiceProtocol.swift in Sources */,
 				AE5D85E12AC9AFA9009680C6 /* AuthenticationService.swift in Sources */,
 				5C0F3AD22C86EFAF0005A176 /* LoginView.swift in Sources */,
 				AE5D85E62AC9B077009680C6 /* AuthenticationServiceProtocol.swift in Sources */,
 				AE5D85B02AC8A221009680C6 /* MobileAcebookApp.swift in Sources */,
+				B29254322C88CED40087280E /* PostService.swift in Sources */,
 				5C0F3AD02C861A3E0005A176 /* RegistrationView.swift in Sources */,
 				AE5D85E82AC9B29A009680C6 /* User.swift in Sources */,
 				92AFBF242C886D57005206BA /* Post.swift in Sources */,
 				92A77BB12C8706EF0019EA48 /* PostsView.swift in Sources */,
+				B29254382C88E01C0087280E /* UserSession.swift in Sources */,
 				AE5D85DA2AC8A337009680C6 /* WelcomePageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

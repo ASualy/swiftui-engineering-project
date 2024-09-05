@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct MobileAcebookApp: App {
+    @StateObject var userSession = UserSession()
+    
     var body: some Scene {
         WindowGroup {
             WelcomePageView()
+                .environmentObject(userSession)
         }
     }
 }
