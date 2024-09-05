@@ -81,6 +81,7 @@ struct RegistrationView: View {
                     .padding()
                 
                 Spacer()
+                .navigationBarBackButtonHidden(true)
                 
             }
             

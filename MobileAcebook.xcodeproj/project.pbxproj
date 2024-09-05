@@ -12,6 +12,7 @@
 		5C0F07A72C89B5390046305A /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F07A62C89B5390046305A /* TokenManager.swift */; };
 		5C0F3AD02C861A3E0005A176 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F3ACF2C861A3E0005A176 /* RegistrationView.swift */; };
 		5C0F3AD22C86EFAF0005A176 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F3AD12C86EFAF0005A176 /* LoginView.swift */; };
+		5C14A2012C8A2FF100E95C72 /* ContentTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14A2002C8A2FF000E95C72 /* ContentTabView.swift */; };
 		92A77BB12C8706EF0019EA48 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A77BB02C8706EF0019EA48 /* PostsView.swift */; };
 		92AFBF242C886D57005206BA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFBF232C886D57005206BA /* Post.swift */; };
 		AE5D85B02AC8A221009680C6 /* MobileAcebookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85AF2AC8A221009680C6 /* MobileAcebookApp.swift */; };
@@ -57,6 +58,7 @@
 		5C0F07A62C89B5390046305A /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		5C0F3ACF2C861A3E0005A176 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		5C0F3AD12C86EFAF0005A176 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		5C14A2002C8A2FF000E95C72 /* ContentTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTabView.swift; sourceTree = "<group>"; };
 		92A77BB02C8706EF0019EA48 /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
 		92AFBF232C886D57005206BA /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		AE5D85AC2AC8A221009680C6 /* MobileAcebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileAcebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +124,7 @@
 				92A77BB02C8706EF0019EA48 /* PostsView.swift */,
 				5C0F07A22C88F7010046305A /* ProfileView.swift */,
 				B27489412C8A0B0C00F59C23 /* CreatePostView.swift */,
+				5C14A2002C8A2FF000E95C72 /* ContentTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				5C0F07A52C8910ED0046305A /* UserService.swift in Sources */,
 				AE5D85E82AC9B29A009680C6 /* User.swift in Sources */,
 				92AFBF242C886D57005206BA /* Post.swift in Sources */,
+				5C14A2012C8A2FF100E95C72 /* ContentTabView.swift in Sources */,
 				92A77BB12C8706EF0019EA48 /* PostsView.swift in Sources */,
 				AE5D85DA2AC8A337009680C6 /* WelcomePageView.swift in Sources */,
 				B27489402C8A0ADA00F59C23 /* CreatePostServiceProtocol.swift in Sources */,

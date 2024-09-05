@@ -27,15 +27,18 @@ struct CreatePostView: View {
 
     var body: some View {
         VStack {
-            Text("Acebook Mobile")
-                .padding(50)
-                .font(.largeTitle)
-                .padding(.bottom, 20)
+//            Text("Acebook Mobile")
+//                .padding(50)
+//                .font(.largeTitle)
+//                .padding(.bottom, 20)
 
             if isLoading {
                         ProgressView("Loading...")
                     } else if let user = user {
-                        Text("Welcome, \(user.username ?? "User")")
+//                        Text("Welcome, \(user.username ?? "User")")
+//                            .padding(50)
+//                            .font(.largeTitle)
+//                            .padding(.bottom, 20)
                         
                         Text("Post Content:")
                             .padding(.leading, 20)
