@@ -184,7 +184,7 @@ struct PostsView: View {
             Image(systemName: "heart")
                 .renderingMode(.template)
                 .foregroundColor(.red)
-            Text("3")
+            Text("5")
             Image(systemName: "bubble.left")
                 .renderingMode(.template)
                 .foregroundColor(Color(.label))
