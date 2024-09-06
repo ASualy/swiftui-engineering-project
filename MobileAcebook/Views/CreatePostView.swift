@@ -13,6 +13,7 @@ struct CreatePostView: View {
     @State private var postMessage: String = ""
     @State private var isLoading: Bool = false
     @State private var user: User?
+    // let user:User?
 
     private let createPostService: CreatePostServiceProtocol
     private let userService = UserService()
@@ -112,8 +113,22 @@ struct CreatePostView: View {
 
         isLoading = true
         postMessage = ""
-
-        let post = Post(id: UUID().uuidString, username: user.username ?? "", message: postContent, userId: user._id ?? "", imgUrl: user.imgUrl ?? "", likes: [])
+        
+        let createdBy = CreatedBy(
+            id: user._id ?? "",
+            username: user.username ?? "",
+            profilePicture: user.imgUrl ?? ""
+        )
+        
+        let post = Post(
+            id: UUID().uuidString,
+            message: postContent,
+            imgUrl: nil,
+            likes: [],
+            createdAt: nil,
+            createdBy: createdBy
+        )
+        
         createPostService.createPost(post: post) { success in
             DispatchQueue.main.async {
                 self.isLoading = false

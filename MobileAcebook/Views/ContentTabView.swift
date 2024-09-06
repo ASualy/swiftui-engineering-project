@@ -12,7 +12,7 @@ struct ContentTabView: View {
     var body: some View {
         TabView{
             
-            Text("My feed")
+            PostsView()
                 .tabItem {
                     Image(systemName: "newspaper.fill")
                 }
