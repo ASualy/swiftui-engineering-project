@@ -8,11 +8,12 @@
 import Foundation
 
 class AuthenticationService: AuthenticationServiceProtocol {
-
+    // Adding TokenManager to store JWT on login (TO BE REPLACED BY SESSION MANAGER)
+    private let tokenManager = TokenManager()
+    
     func signUp(user: User, completion: @escaping (Result<Bool, Error>) -> Void) {
         
         let backendURL = ProcessInfo.processInfo.environment["BACKEND_URL"]!
-        // print("BackendURL: \(String(describing: backendURL))")
         
         guard let url = URL(string: "\(backendURL)/users") else {
                     completion(.failure(URLError(.badURL)))
@@ -97,6 +98,8 @@ class AuthenticationService: AuthenticationServiceProtocol {
                 return
             }
             
+            
+            
             // checks to see if response is 201 (same as backend). if it is, isloggedin is set to true and completion(true)
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 201 {
                 DispatchQueue.main.async {
@@ -104,6 +107,16 @@ class AuthenticationService: AuthenticationServiceProtocol {
                 }
                 completion(true)
                 print("logged in")
+                print("HERE RESPONSE:")
+                // Parse the JSON response, extract token and store it in TokenManager (TO BE REPLASE BY SESSION MANAGER lines from here to print(token)
+                guard let data = data, let token = parseToken(from: data) else {
+                    print("Failed to parse token from response")
+                    completion(false)
+                    return
+                }
+                self.tokenManager.saveToken(token)
+                print(self.tokenManager.getToken() ?? "Can't read the token from storage")
+                
             } else {
                 completion(false)
                 print("Unable to login at http response bit")
@@ -156,6 +169,20 @@ class AuthenticationService: AuthenticationServiceProtocol {
 //    }
 
 }
+
+// Helper function to parse the token (TO BE REPLACED WITH SESSION MANAGER)
+private func parseToken(from data: Data) -> String? {
+    do {
+        if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+           let token = jsonResponse["token"] as? String {
+            return token
+        }
+    } catch {
+        print("Failed to parse JSON: \(error.localizedDescription)")
+    }
+    return nil
+}
+
 
 enum CustomError: Error {
     case message(String)
