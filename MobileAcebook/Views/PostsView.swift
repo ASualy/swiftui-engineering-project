@@ -128,7 +128,7 @@ struct PostsView: View {
         }
         .padding(.bottom, 10)
     }
-
+  
     func messageContainer(for post: Post) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             HStack {

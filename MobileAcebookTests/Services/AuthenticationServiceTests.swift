@@ -20,6 +20,23 @@ class AuthenticationServiceTests: XCTestCase {
         mockService = nil
     }
 
+    func testSignUp() {
+        let expectation = self.expectation(description: "A new user being registred")
+        let user = User(email: "test@example.com", username: "Mr Test", password: "password123")
+        mockService.signUpResult = .success(true)
+        
+        mockService.signUp(user: user) { result in
+            switch result {
+                    case .success(let success):
+                        XCTAssertTrue(success, "The user should be registered successfully")
+                    case .failure(let error):
+                        XCTFail("Expected success, but got failure: \(error)")
+                    }
+                    expectation.fulfill()
+                }
+            waitForExpectations(timeout: 5.0, handler: nil)
+        }
+    
     func testLogIn_Success() {
         let expectation = self.expectation(description: "Login successful")
         let user = User(email: "test@example.com", password: "password123")

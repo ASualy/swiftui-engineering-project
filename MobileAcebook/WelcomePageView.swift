@@ -29,10 +29,10 @@ struct WelcomePageView: View {
                     
                     Spacer()
                     
-//                    Button("Sign Up") {
-//                        // TODO: sign up logic
-//                    }
-//                    .accessibilityIdentifier("signUpButton")
+                    //                    Button("Sign Up") {
+                    //                        // TODO: sign up logic
+                    //                    }
+                    //                    .accessibilityIdentifier("signUpButton")
                     
                     HStack {
                         NavigationLink(destination: LoginView()) {

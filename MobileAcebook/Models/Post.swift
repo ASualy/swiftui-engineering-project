@@ -7,8 +7,6 @@
 
 import Foundation
 
-//struct Post: Identifiable, Codable {
-//    @Published var posts: [Post] = []  // need to add date below and to init
 struct Post: Identifiable, Codable {
     let id: String
     let message: String
@@ -47,5 +45,6 @@ struct CreatedBy: Codable {
 //        self.imgUrl = imgUrl
 //        self.likes = likes
 //    }
+
     
     
