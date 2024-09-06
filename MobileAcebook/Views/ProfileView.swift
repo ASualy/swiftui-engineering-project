@@ -23,10 +23,10 @@ struct ProfileView: View {
                     .foregroundColor(.red)
             } else if let user = user {
                 VStack {
-                    Text("Welcome, \(user.username ?? "User")")
-                        .padding(50)
-                        .font(.largeTitle)
-                        .padding(.bottom, 20)
+//                    Text("Welcome, \(user.username ?? "User")")
+//                        .padding(50)
+//                        .font(.largeTitle)
+//                        .padding(.bottom, 20)
                     
                     if let imageUrl = user.imgUrl, !imageUrl.isEmpty {
                         AsyncImage(url: URL(string: imageUrl)) { image in
@@ -84,9 +84,6 @@ struct ProfileView: View {
         .onAppear {
             fetchUserDetails()
         }
-        
-        NavigationLink("Create Post - ONLY FOR NAVIGATING TO TEST CREATE POST. NOT TO BE INCLUDED.", destination: CreatePostView())
-            .padding()
     }
     
     private func fetchUserDetails() {
@@ -108,7 +105,8 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkOTgwMmJhZWU3YTg4ZmMyYzI4ZDAwIiwiaWF0IjoxNzI1NTMwMjAyLCJleHAiOjE3MjU1MzA4MDJ9.rRRro3kg5IxIZV9Ecga3kVKYuSEx0T3J_mWFC9FZvxU")
+        // Copy your active token to generate preview
+        ProfileView(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkOTgwMmJhZWU3YTg4ZmMyYzI4ZDAwIiwiaWF0IjoxNzI1NTYyNDg5LCJleHAiOjE3MjU1NjMwODl9.Qf0p30YASlhpNvxEEGzlPIn6Bi4vC41rtw9yIpIAXHM")
     }
 }
 

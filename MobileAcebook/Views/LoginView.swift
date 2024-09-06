@@ -72,12 +72,14 @@ struct LoginView:View {
                     .padding()
                 // Automatically redirect to ProfileView on login success
                 NavigationLink(
-                    destination: ProfileView(token:tokenManager.getToken()),
+//                    destination: ProfileView(token:tokenManager.getToken()),
+                    destination: ContentTabView(),
                     isActive: $isLoggedIn, // Activates when isLoggedIn becomes true
                     label: { EmptyView() }
                 )
                 
                 Spacer()
+                .navigationBarBackButtonHidden(true)
             }
         }
 
