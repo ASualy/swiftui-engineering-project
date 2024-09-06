@@ -124,6 +124,50 @@ class AuthenticationService: AuthenticationServiceProtocol {
         }
         task.resume()
     }
+    
+//    class PostViewModel: ObservableObject {
+//    
+//    @Published var posts: [Post] = [] // array to store post objects
+//      
+//        func fetchPosts() {
+//        let urlString = "http://localhost:3000/posts"
+//        guard let url = URL(string: urlString) else {
+//          print("Invalid URL")
+//          return
+//        } // will create a url object and if it fails it will print a message and exit the function. guard let is a safety check that checks if a url is valid before continuing
+//        // Create a URL request
+//        var request = URLRequest(url: url) // creates the url object to present the network request we're going to make
+//        request.httpMethod = "GET" // We're fetching data, so we use GET
+//        // Create a task to fetch the data
+//        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in // creates a networking task and the {()} will be called when the network request goes through with data containing what we receive
+//          // Check for errors
+//          if let error = error {
+//            print("Error fetching data: \(error.localizedDescription)")
+//            return
+//          }
+//          // check that we have some data
+//          guard let data = data else {
+//            print("No data received")
+//            return
+//          }
+//          do { // do catch block
+//            // Create a JSON decoder object
+//            let decoder = JSONDecoder()
+//            // Decode the data into an array of Post objects
+//            let decodedPosts = try decoder.decode([Post].self, from: data)
+//            // Update our posts array on the main thread so we can update ui properties
+//            DispatchQueue.main.async {
+//              self.posts = decodedPosts
+//            }
+//          } catch {
+//            print("Error decoding JSON: \(error.localizedDescription)")
+//          }
+//        }
+//        // Start the task
+//        task.resume()
+//      }
+//    }
+
 }
 
 // Helper function to parse the token (TO BE REPLACED WITH SESSION MANAGER)

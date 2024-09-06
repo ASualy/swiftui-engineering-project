@@ -85,7 +85,7 @@ struct PostsView: View {
 
             VStack(alignment: .leading) {
                 Text(post.createdBy.username)
-                    .font(.title)
+                    .font(.body)
                     .bold()
             }
 
@@ -137,17 +137,60 @@ struct PostsView: View {
         }
         .padding(.bottom, 10)
     }
+ 
     
     func messageContainer(for post: Post) -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(post.message)
-            Text(post.createdBy.username)
-            Text(post.id)
-            Text(post.createdAt ?? "Date unavailable")
-                .font(.system(size: 25))
-                .padding(.leading, 20)
-                .padding(.trailing, 20)
-                .padding(.bottom, 10)
+            // Username and message on the same line
+            HStack {
+                Text(post.createdBy.username)
+                    .font(.caption)
+                    .bold()
+                    .padding(.leading, 20)
+                
+                Text(post.message)
+                    .font(.caption)
+                    .padding(.leading, 1)
+            }
+            .padding(.trailing, 20)
+            .padding(.bottom, 2)
+            
+            if let createdAt = post.createdAt {
+                if let formattedDate = formatDate(createdAt) {
+                    Text(formattedDate)
+                        .font(.system(size: 10))
+                        .padding(.leading, 20)
+                        .padding(.trailing, 20)
+                        .padding(.bottom, 10)
+                        .foregroundColor(.gray)
+                } else {
+                    Text("Date unavailable")
+                        .font(.subheadline)
+                        .padding(.leading, 20)
+                        .padding(.trailing, 20)
+                        .padding(.bottom, 10)
+                }
+            } else {
+                Text("Date unavailable")
+                    .font(.subheadline)
+                    .padding(.leading, 20)
+                    .padding(.trailing, 20)
+                    .padding(.bottom, 10)
+            }
+        }
+    }
+
+
+    func formatDate(_ isoDateString: String) -> String? {
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]  // Handle fractional seconds
+        
+        if let date = isoFormatter.date(from: isoDateString) {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "d MMM yyyy 'at' h:mm"
+            return formatter.string(from: date)
+        } else {
+            return nil
         }
     }
     

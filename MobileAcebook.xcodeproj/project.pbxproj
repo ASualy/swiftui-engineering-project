@@ -12,6 +12,7 @@
 		5C0F07A72C89B5390046305A /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F07A62C89B5390046305A /* TokenManager.swift */; };
 		5C0F3AD02C861A3E0005A176 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F3ACF2C861A3E0005A176 /* RegistrationView.swift */; };
 		5C0F3AD22C86EFAF0005A176 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F3AD12C86EFAF0005A176 /* LoginView.swift */; };
+		5C14A2032C8A589200E95C72 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14A2022C8A589200E95C72 /* FeedService.swift */; };
 		5C14A2012C8A2FF100E95C72 /* ContentTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14A2002C8A2FF000E95C72 /* ContentTabView.swift */; };
 		5C14A2052C8B093100E95C72 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14A2042C8B093100E95C72 /* FeedService.swift */; };
 		5C14A2092C8B0B7F00E95C72 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14A2082C8B0B7F00E95C72 /* Post.swift */; };
@@ -59,6 +60,8 @@
 		5C0F07A62C89B5390046305A /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		5C0F3ACF2C861A3E0005A176 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		5C0F3AD12C86EFAF0005A176 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		5C14A2022C8A589200E95C72 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
+		5CCFD4F92C87A2A500DD15DB /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		5C14A2002C8A2FF000E95C72 /* ContentTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTabView.swift; sourceTree = "<group>"; };
 		5C14A2042C8B093100E95C72 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		5C14A2082C8B0B7F00E95C72 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -207,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5D85E02AC9AFA9009680C6 /* AuthenticationService.swift */,
+				5C14A2022C8A589200E95C72 /* FeedService.swift */,
 				5C0F07A42C8910ED0046305A /* UserService.swift */,
 				5C0F07A62C89B5390046305A /* TokenManager.swift */,
 				B274893D2C8A0AB800F59C23 /* CreatePostService.swift */,
@@ -402,6 +406,7 @@
 				5C14A2012C8A2FF100E95C72 /* ContentTabView.swift in Sources */,
 				92A77BB12C8706EF0019EA48 /* PostsView.swift in Sources */,
 				AE5D85DA2AC8A337009680C6 /* WelcomePageView.swift in Sources */,
+				5C14A2032C8A589200E95C72 /* FeedService.swift in Sources */,
 				5C14A2092C8B0B7F00E95C72 /* Post.swift in Sources */,
 				B27489402C8A0ADA00F59C23 /* CreatePostServiceProtocol.swift in Sources */,
 				5C14A2052C8B093100E95C72 /* FeedService.swift in Sources */,

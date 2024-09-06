@@ -9,14 +9,15 @@ import Foundation
 
 class FeedService {
     let backendURL = ProcessInfo.processInfo.environment["BACKEND_URL"] ?? "http://localhost:3000"
+
     private let tokenManager = TokenManager()
-    
 
     func fetchPosts(completion: @escaping (Result<[Post], Error>) -> Void) {
         guard let url = URL(string: "\(backendURL)/posts") else {
             completion(.failure(NSError(domain: "Invalid URL", code: -1, userInfo: nil)))
             return
         }
+
         
         let token:String = self.tokenManager.getToken()!
         
@@ -56,4 +57,3 @@ class FeedService {
 struct PostsResponse: Decodable {
     let posts: [Post]
 }
-

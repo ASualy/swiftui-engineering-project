@@ -33,9 +33,18 @@ struct CreatedBy: Codable {
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case username
-        case profilePicture 
+        case profilePicture // ON: Deleted = "imgUrl" as it should refer to the profilePicture in JSON structure
     }
 }
     
+//    init(id: String, username: String, message: String, userId: String, imgUrl: String, likes: [String]) {
+//        self.id = id
+//        self.username = username
+//        self.message = message
+//        self.userId = userId
+//        self.imgUrl = imgUrl
+//        self.likes = likes
+//    }
+
     
     
