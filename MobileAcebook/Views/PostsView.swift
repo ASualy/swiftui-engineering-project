@@ -1,59 +1,149 @@
 import SwiftUI
 
 struct PostsView: View {
-    let post: Post
+    @State private var posts: [Post] = []
+    @State private var isLoading: Bool = true
+    @State private var errorMessage: String? = nil
     
-    var welcome: some View {
-        VStack(alignment: .center) {
-            Text("Welcome, \(post.username)") // need to change to user.username
-                .padding(20)
-                .font(.largeTitle)
-                .padding(.bottom, 20)
-            
-            Text("Recent Posts")
-                .padding(.leading, 20)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .font(.title)
+    private let feedService = FeedService()
+
+    var body: some View {
+        ScrollView {
+            VStack {
+                if isLoading {
+                    ProgressView("Loading Posts...")
+                        .padding()
+                } else if let errorMessage = errorMessage {
+                    Text("Error: \(errorMessage)")
+                        .foregroundColor(.red)
+                        .padding()
+                } else {
+                    if posts.isEmpty {
+                        Text("No posts available")
+                            .foregroundColor(.gray)
+                            .padding()
+                    } else {
+                        ForEach(posts) { post in
+                            VStack(alignment: .leading) {
+                                header(for: post)
+                                imageContainer(for: post)
+                                messageContainer(for: post)
+                                actionButtons(for: post)
+                                Spacer()
+                            }
+                        }
+                    }
+                }
+            }
+            .onAppear {
+                fetchPosts()
+            }
         }
     }
     
-    var header: some View {
+    func header(for post: Post) -> some View {
         HStack {
-            Image("profile")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .clipped()
-                .frame(width: 40, height: 40)
-                .clipShape(Circle())
-                .padding(.leading)
-            
+            if let profilePictureUrl = post.createdBy.profilePicture,
+               let url = URL(string: profilePictureUrl) {
+                AsyncImage(url: url) { phase in
+                    switch phase {
+                    case .empty:
+                        Image("profile")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipped()
+                            .frame(width: 40, height: 40)
+                            .clipShape(Circle())
+                            .padding(.leading)
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipped()
+                            .frame(width: 40, height: 40)
+                            .clipShape(Circle())
+                            .padding(.leading)
+                    case .failure:
+                        Image("profile")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipped()
+                            .frame(width: 40, height: 40)
+                            .clipShape(Circle())
+                            .padding(.leading)
+                    @unknown default:
+                        Image("profile")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipped()
+                            .frame(width: 40, height: 40)
+                            .clipShape(Circle())
+                            .padding(.leading)
+                    }
+                }
+            }
+
             VStack(alignment: .leading) {
-                Text(post.username)
+                Text(post.createdBy.username)
                     .font(.title)
                     .bold()
             }
-            
+
             Spacer()
-            
+
             Image(systemName: "ellipsis")
                 .padding()
         }
     }
     
-    var imageContainer: some View {
+    func imageContainer(for post: Post) -> some View {
         VStack {
-            Image("Image")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .clipped()
-                .frame(maxWidth: .infinity)
+            if let imageUrl = post.imgUrl, let url = URL(string: imageUrl) {
+                AsyncImage(url: url) { phase in
+                    switch phase {
+                    case .empty:
+                        Image("Image") // Placeholder image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipped()
+                            .frame(maxWidth: .infinity)
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipped()
+                            .frame(maxWidth: .infinity)
+                    case .failure:
+                        Image("Image") // Fallback in case of failure
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipped()
+                            .frame(maxWidth: .infinity)
+                    @unknown default:
+                        Image("Image")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipped()
+                            .frame(maxWidth: .infinity)
+                    }
+                }
+            } else {
+                Image("Image") // Placeholder if no image URL
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .clipped()
+                    .frame(maxWidth: .infinity)
+            }
         }
         .padding(.bottom, 10)
     }
     
-    var messageContainer: some View {
+    func messageContainer(for post: Post) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(post.message)
+            Text(post.createdBy.username)
+            Text(post.id)
+            Text(post.createdAt ?? "Date unavailable")
                 .font(.system(size: 25))
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
@@ -61,13 +151,13 @@ struct PostsView: View {
         }
     }
     
-    var actionButtons: some View {
+    func actionButtons(for post: Post) -> some View {
         HStack {
             Image(systemName: "heart")
                 .renderingMode(.template)
                 .foregroundColor(Color(.label))
-                Text("3") // needs updating to likes count once handlelike added with toggle and add colour
-            
+            Text("\(post.likes.count)")
+
             Image(systemName: "bubble.left")
                 .renderingMode(.template)
                 .foregroundColor(Color(.label))
@@ -79,20 +169,19 @@ struct PostsView: View {
         .padding(.bottom, 20)
     }
     
-    var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                welcome
-                
-                header
-                
-                imageContainer
-                
-                messageContainer
-                
-                actionButtons
-                
-                Spacer()
+    func fetchPosts() {
+        feedService.fetchPosts { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let fetchedPosts):
+                    print("Fetched posts: \(fetchedPosts)") // Debug log
+                    self.posts = fetchedPosts
+                    self.isLoading = false
+                case .failure(let error):
+                    print("Failed to fetch posts: \(error.localizedDescription)") // Debug log
+                    self.errorMessage = error.localizedDescription
+                    self.isLoading = false
+                }
             }
         }
     }
@@ -100,6 +189,6 @@ struct PostsView: View {
 
 struct PostsView_Previews: PreviewProvider {
     static var previews: some View {
-        PostsView(post: Post(id: "", username: "Archie", message: "I am a cat and I am ADORABLE", userId: "", imgUrl: "", likes: [""]))
+        PostsView()
     }
 }
