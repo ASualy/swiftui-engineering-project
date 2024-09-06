@@ -5,13 +5,16 @@
 //  Created by Oleg Novikov on 04/09/2024.
 //
 import SwiftUI
+import PhotosUI
 
 struct ProfileView: View {
     let token: String?
     @State private var user: User? = nil
     @State private var isLoading = true
     @State private var errorMessage: String? = nil
-    
+    @State private var selectedImage: UIImage? = nil
+    @State private var showImagePicker = false // Trigger image picker
+
     private let userService = UserService()
 
     var body: some View {
@@ -23,12 +26,14 @@ struct ProfileView: View {
                     .foregroundColor(.red)
             } else if let user = user {
                 VStack {
-//                    Text("Welcome, \(user.username ?? "User")")
-//                        .padding(50)
-//                        .font(.largeTitle)
-//                        .padding(.bottom, 20)
-                    
-                    if let imageUrl = user.imgUrl, !imageUrl.isEmpty {
+                    if let selectedImage = selectedImage {
+                        Image(uiImage: selectedImage) // Show selected image
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 200, height: 200)
+                            .clipShape(Circle())
+                            .padding(.bottom, 20)
+                    } else if let imageUrl = user.imgUrl, !imageUrl.isEmpty {
                         AsyncImage(url: URL(string: imageUrl)) { image in
                             image
                                 .resizable()
@@ -40,6 +45,14 @@ struct ProfileView: View {
                         }
                         .padding(.bottom, 20)
                     }
+
+                    Button("Change Profile Photo") {
+                        showImagePicker = true // Show the image picker
+                    }
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(5.0)
                     
                     HStack {
                         Text("Full name:")
@@ -47,7 +60,7 @@ struct ProfileView: View {
                         Text(user.username ?? "N/A")
                     }
                     .padding(.horizontal)
-                    
+
                     HStack {
                         Text("Email:")
                         Spacer()
@@ -55,28 +68,26 @@ struct ProfileView: View {
                     }
                     .padding(.horizontal)
                 }
-                
-                HStack {
-                    Button("Save") {
-                        // Save action
-                    }
-                    .padding()
-                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(5.0)
-                    .accessibilityIdentifier("saveButton")
-                    
-                    Button("Cancel") {
-                        // Cancel action
-                    }
-                    .padding()
-                    .frame(width: 100)
-                    .background(Color.gray)
-                    .foregroundColor(.white)
-                    .cornerRadius(5.0)
-                    .accessibilityIdentifier("cancelButton")
-                }
+
+//                HStack {
+//                    Button("Save") {
+//                        uploadProfilePhoto() // Handle saving the new image
+//                    }
+//                    .padding()
+//                    .frame(width: 100)
+//                    .background(Color.blue)
+//                    .foregroundColor(.white)
+//                    .cornerRadius(5.0)
+//
+//                    Button("Cancel") {
+//                        // Cancel action
+//                    }
+//                    .padding()
+//                    .frame(width: 100)
+//                    .background(Color.gray)
+//                    .foregroundColor(.white)
+//                    .cornerRadius(5.0)
+//                }
                 .padding(.top, 20)
             }
         }
@@ -84,8 +95,12 @@ struct ProfileView: View {
         .onAppear {
             fetchUserDetails()
         }
+        .sheet(isPresented: $showImagePicker) {
+            // Image Picker
+            PhotoPicker(selectedImage: $selectedImage)
+        }
     }
-    
+
     private func fetchUserDetails() {
         userService.getUserDetails(token: token!) { result in
             DispatchQueue.main.async {
@@ -96,6 +111,53 @@ struct ProfileView: View {
                 case .failure(let error):
                     self.errorMessage = error.localizedDescription
                     self.isLoading = false
+                }
+            }
+        }
+    }
+
+    private func uploadProfilePhoto() {
+        guard let selectedImage = selectedImage else { return }
+        // TODO: Upload logic goes here, use `userService` or another service to handle image upload
+        print("Uploading new profile photo")
+        // TODO: convert `UIImage` to data and send to backend
+    }
+}
+
+// PhotoPicker view for picking images
+struct PhotoPicker: UIViewControllerRepresentable {
+    @Binding var selectedImage: UIImage?
+
+    func makeUIViewController(context: Context) -> PHPickerViewController {
+        var config = PHPickerConfiguration()
+        config.filter = .images // Limit to images only
+        let picker = PHPickerViewController(configuration: config)
+        picker.delegate = context.coordinator
+        return picker
+    }
+
+    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {}
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    class Coordinator: NSObject, PHPickerViewControllerDelegate {
+        let parent: PhotoPicker
+
+        init(_ parent: PhotoPicker) {
+            self.parent = parent
+        }
+
+        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+            picker.dismiss(animated: true)
+
+            guard let provider = results.first?.itemProvider else { return }
+            if provider.canLoadObject(ofClass: UIImage.self) {
+                provider.loadObject(ofClass: UIImage.self) { [weak self] image, _ in
+                    DispatchQueue.main.async {
+                        self?.parent.selectedImage = image as? UIImage
+                    }
                 }
             }
         }
